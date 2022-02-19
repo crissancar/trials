@@ -1,0 +1,12 @@
+services:
+
+  Shared.MongoConfig:
+    factory:
+      class: ../../../modules/shared/persistence/mongoose/MongooseConfigFactory
+      method: 'createConfig'
+
+  Shared.ConnectionManager:
+    factory:
+      class: ../../../modules/shared/persistence/mongoose/MongooseClientFactory
+      method: 'createClient'
+    arguments: ['@Shared.MongoConfig']

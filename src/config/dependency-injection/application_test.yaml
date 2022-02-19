@@ -1,0 +1,7 @@
+imports:
+  - { resource: ./application.yaml }
+
+services:
+  Shared.EnvironmentArranger:
+    class: ../../../tests/shared/mongoose/MongooseEnvironmentArranger
+    arguments: ['@Shared.ConnectionManager']

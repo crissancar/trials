@@ -1,0 +1,4 @@
+services:
+  Status.controllers.StatusGetController:
+    class: ../../../modules/status/controllers/StatusGetController
+    arguments: []

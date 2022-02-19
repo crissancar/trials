@@ -1,0 +1,9 @@
+services:
+
+  Genre.services.GenreCreator:
+    class: ../../../modules/genres/services/GenreCreator
+    arguments: ["@Genre.repositories.GenreRepository"]
+
+  Genre.repositories.GenreRepository:
+    class: ../../../modules/genres/persistence/mongoose/MongooseGenreRepository
+    arguments: ['@Shared.ConnectionManager']
