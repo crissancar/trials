@@ -8,6 +8,7 @@ x-app-service: &default-app
     - MONGO_URL=mongodb://mongo:27017/trials-backend-dev
   networks:
     - trials-network
+  user: 'root'
   volumes:
     - .:/code
     - node_modules:/code/node_modules
