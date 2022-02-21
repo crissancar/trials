@@ -9,7 +9,6 @@ jobs:
     strategy:
       matrix:
         node-version: [12.x, 15.x]
-        mongodb-version: [3.6, 4.2]
 
     env:
       TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
@@ -21,16 +20,12 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Launch MongoDB
-        uses: wbari/start-mongoDB@v0.2
-        with:
-          mongoDBVersion: ${{ matrix.mongodb-version }}
-      - name: Install application dependencies
+      - name: Start database
         run: |
-          npm install
+          make start_database
       - name: Build application
         run: |
-          npm run build --if-present
+          make build
       - name: Run tests
         run: |
-          npm test
+          make test
