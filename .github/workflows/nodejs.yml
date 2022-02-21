@@ -23,7 +23,7 @@ jobs:
       - name: Build application
         run: |
           make build
-      - name: Start all the environment
+      - name: Start database
         run: |
           make start_database
       - name: Run tests
